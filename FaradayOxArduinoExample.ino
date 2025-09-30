@@ -138,7 +138,7 @@ static bool faradayox_measure(MeasurementResult_t *measurement) {
   // At this point buffer contatins valid measurements data
   measurement->status = buffer[FRAME_DATA_POS + REG_STATUS - REG_STATUS];
   // If bad status
-  if (!(buffer[FRAME_DATA_POS] == REG_STATUS_MEASUREMENT_FINISHED)) {
+  if (!(buffer[FRAME_DATA_POS] & REG_STATUS_MEASUREMENT_FINISHED)) {
     return false;
   }
 
